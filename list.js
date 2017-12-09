@@ -1,8 +1,17 @@
-var additem = function(){
+/*
+  demo basic JavaScript 
+  Team: Briasha
+  Dasha and Brian
+  SoftDev1 pd0
+  K15 -- DOMinating JS
+  2017-12-11m
+*/
+
+var additem = function(){ //add items if button is clicked
 	var list = document.getElementById("thelist").getElementsByTagName("li");
 	var newNum = list.length;
 	var newElem = document.createElement("li");
-	newElem.innerHTML = "item "+newNum;
+	newElem.innerHTML = "item "+newNum; //adds an item w text based on list length
 	newElem.addEventListener("mouseover",modHeader);
 	newElem.addEventListener("mouseout",modNormal);
 	newElem.addEventListener("click",itemRemove);
@@ -10,19 +19,19 @@ var additem = function(){
 	thelist.appendChild(newElem);
 };
 
-var modHeader = function(header)
+var modHeader = function(header) //changes header to specified word.
 {
 	var header = document.getElementById("h");	
 	header.innerHTML = this.innerHTML;
 }
 
-var modNormal = function()
+var modNormal = function() //changes header back to hello world
 {
 	var header = document.getElementById("h");	
 	header.innerHTML = "Hello World!";
 }
 
-var itemRemove = function()
+var itemRemove = function() //removes clicked on item
 {
 	//var list = document.getElementById("thelist").getElementsByTagName("li");
 	this.parentNode.removeChild(this);
