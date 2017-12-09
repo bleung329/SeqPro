@@ -4,42 +4,37 @@ var additem = function(){
 	var newElem = document.createElement("li");
 	newElem.innerHTML = "item "+newNum;
 	newElem.addEventListener("mouseover",modHeader);
+	newElem.addEventListener("mouseout",modNormal);
+	newElem.addEventListener("click",itemRemove);
 	var thelist = document.getElementById("thelist");
 	thelist.appendChild(newElem);
 };
 
 var modHeader = function(header)
 {
-	console.log(this.innerHTML);
-	console.log(header.innerHTML);
+	var header = document.getElementById("h");	
 	header.innerHTML = this.innerHTML;
-	/*
-	console.log("Does work?");
-	var replace = document.createElement('h1');
-	replace.innerHTML = this.innerHTML;
-	header.replaceChild(replace,header);
-	*/
 }
 
-var changeheader = function(blah)
+var modNormal = function()
 {
-	var header = document.getElementById("h");
-	var wow = document.createElement("h1");
-	wow.innerHTML = blah;
-	header.replaceChild(wow,header);
+	var header = document.getElementById("h");	
+	header.innerHTML = "Hello World!";
+}
+
+var itemRemove = function()
+{
+	//var list = document.getElementById("thelist").getElementsByTagName("li");
+	this.parentNode.removeChild(this);
 }
 
 var list = document.getElementById("thelist").getElementsByTagName("li");
-for (var entry of list.entries())
+for (var i = 0; i < list.length; i++)
 {
-	entry.addEventListener("mouseover",modHeader);
-	//entry.addEventListener("",modNormal);
+	list[i].addEventListener("mouseover",modHeader);
+	list[i].addEventListener("mouseout",modNormal);
 }
 
 var wow = document.getElementById("b");
 wow.addEventListener('click', additem);
-var header = document.getElementById("h");
 
-
-//var wow2 = document.getElementById("h");
-//document.getElementById("thelist").onmouseover = function() {changeheader("testing")};
