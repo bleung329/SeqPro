@@ -33,6 +33,7 @@ for (var i = 0; i < list.length; i++)
 {
 	list[i].addEventListener("mouseover",modHeader);
 	list[i].addEventListener("mouseout",modNormal);
+	list[i].addEventListener("click",itemRemove);
 }
 
 var wow = document.getElementById("b");
