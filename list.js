@@ -15,6 +15,16 @@ var additem_fib = function(){
     additem("thelist2", fibonacci(list_length("thelist2")));
 };
 
+var additem_fact = function(){
+    additem("thelist4", factorial(list_length("thelist4")));
+}
+var additem_catalan = function(){
+    var wow = list_length("thelist3");
+    var catalan_num = factorial(2 * wow);
+    catalan_num = catalan_num / (factorial(wow + 1) * factorial(wow))
+    additem("thelist3", catalan_num);
+};
+
 var list_length = function(listz){
     var list = document.getElementById(listz).getElementsByTagName("li");
     var newNum = list.length;
@@ -64,21 +74,20 @@ var fibonacci = function(){
 	return 1;
     }
     return parseInt(list[list.length-1].innerHTML) + parseInt(list[list.length -2].innerHTML);
-    /*( if (n==0){
-	return 0;
-    }
-    else if (n == 1){
-	return 1;
-    }
-    else {
-	return  fibonacci(n - 1) + fibonacci(n - 2);
-    }
-*/};
+};
 
-//var perfect_square = function(n){
-   // if 
+var factorial = function(n){
+    if (n == 1 || n == 0){
+        return 1;
+    }
+    return n * factorial(n-1);
+}
 
 var wow = document.getElementById("b");
 wow.addEventListener('click', additem1);
 var wow2 = document.getElementById("b2");
 wow2.addEventListener('click', additem_fib);
+var wow3 = document.getElementById("b3");
+wow3.addEventListener('click', additem_catalan);
+var wow4 = document.getElementById("b4");
+wow4.addEventListener('click', additem_fact);
